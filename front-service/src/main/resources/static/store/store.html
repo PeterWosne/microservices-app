@@ -1,0 +1,50 @@
+<nav class="navbar justify-content-between p-0 mt-5">
+    <h3>Store</h3>
+    <form class="form-inline float-end" ng-submit="loadProducts()">
+        <input type="number" min="0" id="title" placeholder="Min price" ng-model="filter.min_price">
+        <input type="number" id="price" min="0" placeholder="Max price" ng-model="filter.max_price">
+        <input type="text" id="categoryTitle" placeholder="Title search" ng-model="filter.title_part">
+        <button type="submit" class="btn btn-primary mb-2">Apply filter</button>
+    </form>
+</nav>
+
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Title</th>
+        <th scope="col">Price</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="p in cart.content">
+        <td style="vertical-align: middle;">{{p.id}}</td>
+        <td style="vertical-align: middle;">{{p.title}}</td>
+        <td style="vertical-align: middle;">{{p.price}}</td>
+        <td>
+            <a class="btn btn-primary float-end" ng-click="addProductToCart(p.id)">Add to cart</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<nav aria-label="Page navigation">
+    <ul class="pagination">
+        <li class="page-item" ng-repeat="p in pagesList" ng-class="cart.number + 1 == p ? 'page-item active' : 'page-item'">
+            <button class="page-link" ng-click="loadProducts(p)">{{p}}</button>
+        </li>
+    </ul>
+</nav>
+
+
+
+<!--
+<div class="mb-2 mt-2">
+    <form class="form-inline" ng-submit="createNewProduct()">
+        <input type="text" id="title" placeholder="Title" ng-model="newProduct.title">
+        <input type="number" id="price" min="0" placeholder="Price" ng-model="newProduct.price">
+        <input type="text" id="categoryTitle" placeholder="Category" ng-model="newProduct.categoryTitle">
+        <button type="submit" class="btn btn-primary mb-2">Add product</button>
+    </form>
+</div> -->

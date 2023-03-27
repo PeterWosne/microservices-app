@@ -1,0 +1,56 @@
+<div>
+    <h3 class="mt-5">Shopping cart</h3>
+    <a class="float-end" href="#" ng-show="items.length > 0" ng-click="clearCart()">Clear cart</a>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total price</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="i in items">
+            <td style="vertical-align: middle;">{{i.productTitle}}</td>
+            <td style="vertical-align: middle;">{{i.pricePerProduct}}</td>
+            <td>
+                <div class="d-flex flex-row">
+                    <a class="btn btn-link px-2" ng-click="decrement(i.productId)">
+                        <i class="fas fa-minus"></i>
+                    </a>
+
+                    <input id="form1" min="0" name="quantity" ng-value="i.quantity" type="number"
+                           class="text-center" style="width: 50px;" disabled />
+
+                    <a class="btn btn-link px-2" ng-click="increment(i.productId)">
+                        <i class="fas fa-plus"></i>
+                    </a>
+                </div>
+            </td>
+            <td style="vertical-align: middle;">{{i.price}}</td>
+            <td></td>
+
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <th>{{totalPrice}}</th>
+            <td></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <form ng-show="items.length > 0" ng-submit="createOrder()">
+        <div class="form-group">
+            <input type="text" class="form-control mt-2 w-25" placeholder="Shipping address" ng-model="newShipping.address" required>
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control mt-2 w-25" placeholder="Phone" ng-model="newShipping.phone" required>
+        </div>
+        <button type="submit" class="btn btn-primary mt-3 float-end">Create an order</button>
+    </form>
+
+</div>

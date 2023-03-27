@@ -1,0 +1,20 @@
+<div>
+    <h3 class="mt-5">Registration</h3>
+
+    <form ng-submit="createNewUser()">
+        <div class="form-group">
+            <input type="text" class="form-control mt-2 w-25" placeholder="Username" ng-model="newUser.username" required>
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control mt-2 w-25" placeholder="Email" ng-model="newUser.email" required>
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control mt-2 w-25" placeholder="Password" ng-model="newUser.password" required>
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control mt-2 w-25" placeholder="Confirm password" ng-model="newUser.confirmPassword" required>
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Register</button>
+    </form>
+
+</div>
